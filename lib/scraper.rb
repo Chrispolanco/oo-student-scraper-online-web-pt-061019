@@ -28,7 +28,8 @@ class Scraper
       link.include?("twitter")? student[:twitter] = link: ""
       if !link.include?("blog"||"github"||"linkedin")? 
         student[:blog] = link: ""
-      end 
+      end
+        binding.pry 
     end 
       student[:profile_quote] = profile_page.css(".profile-quote").text if profile_page.css(".profile-quote")
       student[:bio] = profile_page.css("div.bio-content.content-holder div.description-holder p").text if profile_page.css("div.bio-content.content-holder div.description-holder p")
