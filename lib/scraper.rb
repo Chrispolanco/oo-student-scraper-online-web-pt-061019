@@ -26,7 +26,7 @@ class Scraper
       link.include?("linkedin")? student[:linkedin] = link: ""
       link.include?("github")? student[:github] = link: ""
       link.include?("twitter")? student[:twitter] = link: ""
-      if !link.include?("blog"||"github"||"linkedin") 
+      if !link.include?("twitter"||"github"||"linkedin") 
         student[:blog] = link
         binding.pry
       end
