@@ -26,7 +26,9 @@ class Scraper
       link.include?("linkedin")? student[:linkedin] = link: ""
       link.include?("github")? student[:github] = link: ""
       link.include?("twitter")? student[:twitter] = link: ""
-      if !link.exclude?("blog")? student[:blog] = link: ""
+      if !link.include?("blog"||"github"||"linkedin")? 
+        student[:blog] = link: ""
+      end 
     end 
       student[:profile_quote] = profile_page.css(".profile-quote").text if profile_page.css(".profile-quote")
       student[:bio] = profile_page.css("div.bio-content.content-holder div.description-holder p").text if profile_page.css("div.bio-content.content-holder div.description-holder p")
